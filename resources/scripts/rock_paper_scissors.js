@@ -9,7 +9,7 @@ class RockPaperScissors {
   }
 
   /**
-   * RETURN: one of the following values (`rock`, `paper`, `scissors`)
+   * RETURN: one of the following values ('rock', 'paper', 'scissors')
    * using Math.random() method, you should be able to get one of the following values
    */
   generateCPUResponse() {
@@ -20,19 +20,19 @@ class RockPaperScissors {
   }
 
   /**
-   * returns one of the following values: `win`, `lose`, `tie`
+   * returns one of the following values: 'win', 'lose', 'tie'
    * tie:
    *     the user selection the same as the CPU
    * win: 
-   *    (user is `rock` and cpu is `scissors
+   *    (user is 'rock' and cpu is 'scissors
    *     OR
-   *    (user is `paper` and cpu is `rock`) 
+   *    (user is 'paper' and cpu is 'rock') 
    *     OR 
-   *    (user is `scissors` and cpu is `paper`)
-   * `lose`:
+   *    (user is 'scissors' and cpu is 'paper')
+   * 'lose':
    *    the opposite case :)
-   * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
-   * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
+   * @param {string} userSelection user selection. Can only be one of the following values ['rock', 'paper', 'scissors']
+   * @param {string} cpuSelection computer selection. Can only be one of the following values ['rock', 'paper', 'scissors']
    */
   determineWinner(userSelection, cpuSelection) {
     if (userSelection == cpuSelection) {
@@ -54,7 +54,7 @@ class RockPaperScissors {
 
   /**
    * 
-   * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
+   * @param {string} userSelection user selection. Can only be one of the following values ['rock', 'paper', 'scissors']
    */
   play(userSelection) {
 
@@ -63,12 +63,14 @@ class RockPaperScissors {
 
     if (result == 'win') {
       this.score.user++;
+      this.gameHistoryLog.push(this.username, ' selected ', this.userSelection, ', CPU selected ', this.cpuSelection, ': ', this.username, ' wins');
     }
     else if (result == 'lose') {
       this.score.cpu++;
+      this.gameHistoryLog.push(this.username, ' selected ', this.userSelection, ', CPU selected ', this.cpuSelection, ': ', 'CPU wins');
     }
-
-    //this.gameHistoryLog.push(`Yahya selected Scissors, CPU selected Paper: Yahya wins wins`);
+    else {
+      this.gameHistoryLog.push(this.username, ' selected ', this.userSelection, ', CPU selected ', this.cpuSelection, ': ', 'It is a tie');
+    }
   }
-
 }
